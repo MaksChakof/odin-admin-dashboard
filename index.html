@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Панель управления</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=assignment,chat,dashboard,groups,help,history,home,notifications,person,search,settings,share,shield,star,visibility&display=block" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="#">
+      <span class="icon" aria-hidden="true">dashboard</span>
+      Панель
+    </a>
+    <nav aria-label="Основное меню">
+      <ul class="nav">
+        <li><a href="#"><span class="icon" aria-hidden="true">home</span>Главная</a></li>
+        <li><a href="#"><span class="icon" aria-hidden="true">person</span>Профиль</a></li>
+        <li><a href="#"><span class="icon" aria-hidden="true">chat</span>Сообщения</a></li>
+        <li><a href="#"><span class="icon" aria-hidden="true">history</span>История</a></li>
+        <li><a href="#"><span class="icon" aria-hidden="true">assignment</span>Задачи</a></li>
+        <li><a href="#"><span class="icon" aria-hidden="true">groups</span>Сообщества</a></li>
+      </ul>
+      <ul class="nav nav-secondary">
+        <li><a href="#"><span class="icon" aria-hidden="true">settings</span>Настройки</a></li>
+        <li><a href="#"><span class="icon" aria-hidden="true">help</span>Поддержка</a></li>
+        <li><a href="#"><span class="icon" aria-hidden="true">shield</span>Приватность</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <header class="header">
+    <div class="header-top">
+      <form class="search" role="search" action="#">
+        <span class="icon" aria-hidden="true">search</span>
+        <label class="visually-hidden" for="search">Поиск по проектам</label>
+        <input type="search" id="search" name="q">
+      </form>
+      <div class="user">
+        <button class="icon-button" type="button" aria-label="Уведомления">
+          <span class="icon" aria-hidden="true">notifications</span>
+        </button>
+        <span class="avatar avatar-small" aria-hidden="true">МО</span>
+        <span class="user-name">Морган Оукли</span>
+      </div>
+    </div>
+
+    <div class="header-bottom">
+      <div class="greeting">
+        <span class="avatar avatar-large" aria-hidden="true">МО</span>
+        <div>
+          <p class="greeting-small">Привет,</p>
+          <h1 class="greeting-name">Морган Оукли (@morgan)</h1>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button class="button" type="button">Создать</button>
+        <button class="button" type="button">Загрузить</button>
+        <button class="button" type="button">Поделиться</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="projects" aria-labelledby="projects-title">
+      <h2 id="projects-title">Ваши проекты</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>Супер крутой проект</h3>
+          <p>Сайт, который помогает найти время для всего, что давно откладывал. Пока только в мечтах.</p>
+          <div class="card-actions">
+            <button type="button" aria-label="В избранное"><span class="icon" aria-hidden="true">star</span></button>
+            <button type="button" aria-label="Следить"><span class="icon" aria-hidden="true">visibility</span></button>
+            <button type="button" aria-label="Поделиться"><span class="icon" aria-hidden="true">share</span></button>
+          </div>
+        </article>
+        <article class="card">
+          <h3>Не такой уж крутой проект</h3>
+          <p>Скромный, но честный: делает одну вещь и делает её хорошо.</p>
+          <div class="card-actions">
+            <button type="button" aria-label="В избранное"><span class="icon" aria-hidden="true">star</span></button>
+            <button type="button" aria-label="Следить"><span class="icon" aria-hidden="true">visibility</span></button>
+            <button type="button" aria-label="Поделиться"><span class="icon" aria-hidden="true">share</span></button>
+          </div>
+        </article>
+        <article class="card">
+          <h3>Пробный проект</h3>
+          <p>Здесь пробуем новые идеи, прежде чем они попадут в настоящие проекты.</p>
+          <div class="card-actions">
+            <button type="button" aria-label="В избранное"><span class="icon" aria-hidden="true">star</span></button>
+            <button type="button" aria-label="Следить"><span class="icon" aria-hidden="true">visibility</span></button>
+            <button type="button" aria-label="Поделиться"><span class="icon" aria-hidden="true">share</span></button>
+          </div>
+        </article>
+        <article class="card">
+          <h3>Ещё один проект</h3>
+          <p>Описание подлиннее, чтобы карточки были разной высоты, а сетка всё равно держала ровные ряды: высота ряда подстраивается под самую высокую карточку.</p>
+          <div class="card-actions">
+            <button type="button" aria-label="В избранное"><span class="icon" aria-hidden="true">star</span></button>
+            <button type="button" aria-label="Следить"><span class="icon" aria-hidden="true">visibility</span></button>
+            <button type="button" aria-label="Поделиться"><span class="icon" aria-hidden="true">share</span></button>
+          </div>
+        </article>
+        <article class="card">
+          <h3>Почти готовый проект</h3>
+          <p>Тот самый проект, который всегда «почти готов».</p>
+          <div class="card-actions">
+            <button type="button" aria-label="В избранное"><span class="icon" aria-hidden="true">star</span></button>
+            <button type="button" aria-label="Следить"><span class="icon" aria-hidden="true">visibility</span></button>
+            <button type="button" aria-label="Поделиться"><span class="icon" aria-hidden="true">share</span></button>
+          </div>
+        </article>
+        <article class="card">
+          <h3>Проект на потом</h3>
+          <p>Идея записана, макет нарисован, осталось только начать.</p>
+          <div class="card-actions">
+            <button type="button" aria-label="В избранное"><span class="icon" aria-hidden="true">star</span></button>
+            <button type="button" aria-label="Следить"><span class="icon" aria-hidden="true">visibility</span></button>
+            <button type="button" aria-label="Поделиться"><span class="icon" aria-hidden="true">share</span></button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <aside class="side">
+      <section aria-labelledby="announcements-title">
+        <h2 id="announcements-title">Объявления</h2>
+        <div class="panel">
+          <article class="announcement">
+            <h3>Выходной в пятницу</h3>
+            <p>Офис закрыт в пятницу. Хороших выходных и до встречи в понедельник!</p>
+          </article>
+          <article class="announcement">
+            <h3>Новые правила для проектов</h3>
+            <p>С этой недели у каждого проекта должен быть README с описанием и ссылкой на живую страницу.</p>
+          </article>
+          <article class="announcement">
+            <h3>Обновление панели</h3>
+            <p>Проекты теперь стоят в сетке и сами подстраиваются под ширину экрана.</p>
+          </article>
+        </div>
+      </section>
+
+      <section aria-labelledby="trending-title">
+        <h2 id="trending-title">В тренде</h2>
+        <ul class="panel trending">
+          <li>
+            <span class="avatar" aria-hidden="true">T</span>
+            <div>
+              <p class="handle">@tegan</p>
+              <p class="project-name">Мировое господство</p>
+            </div>
+          </li>
+          <li>
+            <span class="avatar" aria-hidden="true">M</span>
+            <div>
+              <p class="handle">@morgan</p>
+              <p class="project-name">Супер крутой проект</p>
+            </div>
+          </li>
+          <li>
+            <span class="avatar" aria-hidden="true">K</span>
+            <div>
+              <p class="handle">@kendall</p>
+              <p class="project-name">Магазин носков</p>
+            </div>
+          </li>
+          <li>
+            <span class="avatar" aria-hidden="true">A</span>
+            <div>
+              <p class="handle">@alex</p>
+              <p class="project-name">Шахматы онлайн</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </aside>
+  </main>
+</body>
+</html>

@@ -1,0 +1,439 @@
+/* ===== Цвета и размеры ===== */
+:root {
+  --sidebar-bg: #1992d4;
+  --sidebar-text: #ffffff;
+  --page-bg: #e2e8f0;
+  --surface: #ffffff;
+  --text: #1f2937;
+  --muted: #64748b;
+  --accent: #f0b429;
+  --button-bg: #1992d4;
+  --button-hover: #127fbf;
+  --line: #cbd5e1;
+  --radius: 10px;
+  --shadow: 0 2px 6px rgb(15 23 42 / 12%);
+}
+
+/* ===== Сброс ===== */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+h1, h2, h3, p {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+button, input {
+  font: inherit;
+}
+
+/* ===== Каркас страницы: Grid с областями ===== */
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 250px 1fr;        /* меню 250px, остальное — правой части */
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "sidebar header"
+    "sidebar main";
+  font-family: "Roboto", system-ui, sans-serif;
+  line-height: 1.5;
+  color: var(--text);
+  background-color: var(--page-bg);
+}
+
+/* Иконки — шрифт Material Symbols: слово внутри span превращается в значок */
+.icon {
+  display: inline-block;
+  flex-shrink: 0;                /* во flex-ряду значок не сжимается из-за длинного текста */
+  width: 1em;
+  overflow: hidden;              /* если шрифт не загрузится, слово не разъедет вёрстку */
+  font-family: "Material Symbols Outlined";
+  font-size: 1.5rem;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  white-space: nowrap;
+  font-feature-settings: "liga";
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  background-color: #fde68a;
+  color: #78350f;
+  font-weight: 700;
+}
+
+.avatar-small {
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 0.875rem;
+}
+
+.avatar-large {
+  width: 4.5rem;
+  height: 4.5rem;
+  font-size: 1.5rem;
+}
+
+/* ===== Боковое меню ===== */
+.sidebar {
+  grid-area: sidebar;
+  padding: 1.25rem 1.5rem;
+  background-color: var(--sidebar-bg);
+  color: var(--sidebar-text);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: inherit;
+  text-decoration: none;
+}
+
+.brand .icon {
+  font-size: 2.5rem;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.nav-secondary {
+  margin-top: 3rem;
+}
+
+.nav a {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: inherit;
+  text-decoration: none;
+}
+
+.nav a:hover,
+.nav a:focus-visible {
+  text-decoration: underline;
+}
+
+/* ===== Шапка ===== */
+.header {
+  grid-area: header;
+  position: relative;            /* без position z-index не работает */
+  z-index: 1;                    /* тень шапки ложится поверх main */
+  display: grid;
+  gap: 1.5rem;
+  padding: 1.25rem 2.5rem 1.5rem;
+  background-color: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.search {
+  flex: 0 1 36rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.search input {
+  flex: 1;
+  min-width: 0;
+  padding: 0.5rem 1rem;
+  border: 0;
+  border-radius: 999px;
+  background-color: var(--page-bg);
+  color: var(--text);
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  font-weight: 700;
+}
+
+.icon-button {
+  display: flex;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.header-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.greeting {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.greeting-small {
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.greeting-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.header-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.button {
+  padding: 0.5rem 2rem;
+  border: 0;
+  border-radius: 999px;
+  background-color: var(--button-bg);
+  color: #ffffff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: var(--button-hover);
+}
+
+/* ===== Основная часть: проекты слева, боковая колонка справа ===== */
+.main {
+  grid-area: main;
+  display: grid;
+  grid-template-columns: 1fr 18rem;
+  align-items: start;
+  gap: 1.5rem;
+  padding: 1.5rem;
+}
+
+.main h2 {
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+/* Карточки: столько колонок, сколько влезет по 16rem, остаток делится поровну */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-height: 12rem;
+  padding: 1.5rem 1.75rem 1rem;
+  border-left: 0.5rem solid var(--accent);
+  border-radius: var(--radius);
+  background-color: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.card h3 {
+  font-size: 1.125rem;
+}
+
+.card p {
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.card-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.25rem;
+  margin-top: auto;              /* прижимает значки к низу карточки */
+}
+
+.card-actions button {
+  display: flex;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.card-actions .icon {
+  font-size: 1.375rem;
+}
+
+.side {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.panel {
+  padding: 1.25rem 1.5rem;
+  border-radius: var(--radius);
+  background-color: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+/* Линия только между объявлениями: у каждого, перед которым есть такое же */
+.announcement + .announcement {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+
+.announcement h3 {
+  font-size: 1rem;
+}
+
+.announcement p {
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+.trending {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.trending li {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.handle {
+  font-weight: 700;
+}
+
+.project-name {
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+.trending li:nth-child(2) .avatar {
+  background-color: #bfdbfe;
+  color: #1e3a8a;
+}
+
+.trending li:nth-child(3) .avatar {
+  background-color: #bbf7d0;
+  color: #14532d;
+}
+
+.trending li:nth-child(4) .avatar {
+  background-color: #fbcfe8;
+  color: #831843;
+}
+
+/* ===== Средний экран: боковая колонка уходит под проекты ===== */
+@media (max-width: 1100px) {
+  .main {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== Телефон: меню сверху, всё в одну колонку ===== */
+@media (max-width: 760px) {
+  body {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr;
+    grid-template-areas:
+      "sidebar"
+      "header"
+      "main";
+  }
+
+  .sidebar {
+    padding: 1rem;
+  }
+
+  .brand {
+    margin-bottom: 1rem;
+  }
+
+  .nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.25rem;
+  }
+
+  .nav-secondary {
+    margin-top: 0.75rem;
+  }
+
+  .nav a {
+    gap: 0.4rem;
+    font-size: 1rem;
+  }
+
+  .header {
+    padding: 1rem;
+  }
+
+  /* поиск — на всю строку, пользователь — под ним; иначе шапка распирает колонку */
+  .header-top {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .search {
+    flex-basis: 100%;
+  }
+
+  .header-actions {
+    gap: 0.75rem;
+  }
+
+  .button {
+    padding: 0.5rem 1.25rem;
+  }
+
+  .main {
+    padding: 1rem;
+  }
+}
